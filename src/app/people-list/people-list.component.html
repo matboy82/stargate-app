@@ -1,0 +1,9 @@
+@for(person of people(); track person) {
+    <app-person-card (click)="getPersonDuties(person)" [person]="person"></app-person-card>   
+}
+
+@defer(when (selectedPerson !==undefined)){
+    <h5>Duties for {{selectedPerson?.name}}</h5>
+
+    <app-astronaut-duty-list [astronautDuties]="astroDuties"></app-astronaut-duty-list>
+}
